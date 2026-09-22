@@ -2,7 +2,6 @@
 <html lang="id">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light only">
@@ -10,7 +9,6 @@
 
     <title>Indibiz - Solusi Bisnis Digital</title>
 
-    <!-- Meta Tags -->
     <meta name="description" content="Layanan internet cepat, stabil, dan terpercaya dari Indibiz untuk mendukung operasional dan pemasaran bisnis Anda.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://elisepertiwi61-ship-it.github.io/Website-Indibiz/">
@@ -19,14 +17,11 @@
     <meta property="og:image" content="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80">
     <meta name="twitter:card" content="summary_large_image">
 
-    <!-- Font Enterprise: Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-
-        /* MEMAKSA TAMPILAN LIGHT MODE */
         :root {
             color-scheme: light only;
             --brand-primary: #0284c7;
@@ -61,7 +56,6 @@
             overflow-x: hidden;
         }
 
-        /* NAVBAR */
         nav {
             background: rgba(15, 23, 42, 0.92) !important;
             backdrop-filter: blur(16px);
@@ -103,7 +97,7 @@
         nav ul {
             list-style: none;
             display: flex;
-            gap: 28px;
+            gap: 24px;
             align-items: center;
         }
 
@@ -119,7 +113,14 @@
             color: #ffffff !important;
         }
 
-        /* HERO SECTION */
+        .btn-admin {
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8 !important;
+            padding: 6px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(56, 189, 248, 0.4);
+        }
+
         .hero {
             min-height: 580px;
             padding: 120px 8% 100px 8%;
@@ -173,7 +174,6 @@
             font-weight: 400;
         }
 
-        /* BUTTONS */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -195,7 +195,6 @@
             box-shadow: 0 18px 32px -6px rgba(2, 132, 199, 0.5);
         }
 
-        /* SECTIONS */
         section {
             padding: 90px 8%;
         }
@@ -219,7 +218,6 @@
             font-weight: 500;
         }
 
-        /* SECTION KONDISI */
         .masalah {
             display: flex;
             gap: 48px;
@@ -284,7 +282,6 @@
             font-weight: 800;
         }
 
-        /* SECTION PAKET */
         .paket {
             background: #f1f5f9 !important;
         }
@@ -345,7 +342,6 @@
             padding: 20px 0;
         }
 
-        /* SECTION KEUNGGULAN */
         .keunggulan {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -372,7 +368,6 @@
             font-size: 15px;
         }
 
-        /* KONTAK & FOOTER */
         .kontak {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
             color: #ffffff !important;
@@ -394,7 +389,6 @@
             font-size: 14px;
         }
 
-        /* RESPONSIVE */
         @media (max-width: 992px) { .cards, .keunggulan { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 768px) {
             nav { padding: 14px 16px; flex-direction: column; gap: 12px; }
@@ -407,14 +401,11 @@
             .cards, .keunggulan { grid-template-columns: 1fr; }
             .kontak { margin: 0 16px 50px 16px; padding: 44px 20px; }
         }
-
     </style>
-
 </head>
 
 <body>
 
-<!-- NAVBAR -->
 <nav>
     <div class="logo">Indibiz</div>
     <ul>
@@ -423,10 +414,10 @@
         <li><a href="#paket">Paket</a></li>
         <li><a href="#keunggulan">Keunggulan</a></li>
         <li><a href="#kontak">Kontak</a></li>
+        <li><a href="javascript:void(0)" onclick="bukaAdminSheet()" class="btn-admin">Admin</a></li>
     </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="beranda">
     <div class="hero-content">
         <div class="hero-badge">Solusi Konektivitas Terpercaya</div>
@@ -436,7 +427,6 @@
     </div>
 </section>
 
-<!-- KONDISI -->
 <section id="kondisi">
     <div class="judul">
         <h2>Kondisi Kabut Asap</h2>
@@ -460,7 +450,6 @@
     </div>
 </section>
 
-<!-- PAKET -->
 <section class="paket" id="paket">
     <div class="judul">
         <h2>Pilihan Paket Indibiz</h2>
@@ -471,7 +460,6 @@
     </div>
 </section>
 
-<!-- KEUNGGULAN -->
 <section id="keunggulan">
     <div class="judul">
         <h2>Keunggulan Indibiz</h2>
@@ -493,34 +481,33 @@
     </div>
 </section>
 
-<!-- KONTAK -->
 <section class="kontak" id="kontak">
     <h2>Tertarik Menggunakan Indibiz?</h2>
     <p>Hubungi kami melalui WhatsApp untuk mendapatkan informasi lengkap mengenai paket dan layanan Indibiz yang sesuai dengan kebutuhan bisnis Anda.</p>
     <a href="https://wa.me/6285167217306?text=Halo%20Admin%20Indibiz,%20saya%20ingin%20bertanya%20mengenai%20layanan%20dan%20pemasangan%20paket%20internet." class="btn btn-kontak" target="_blank">Hubungi Kami via WhatsApp</a>
 </section>
 
-<!-- FOOTER -->
 <footer>
     <p>© 2026 Indibiz | Website Pendukung Pemasaran</p>
     <p>Dibuat untuk kegiatan PKL RPL</p>
 </footer>
 
-<!-- SCRIPT PENGAMBIL DATA GOOGLE SHEETS -->
 <script>
     const NOMOR_WA_ADMIN = "6285167217306";
     
-    // GANTI TULISAN DI BAWAH DENGAN URL APPS SCRIPT ANDA
-    const SPREADSHEET_API = "PASTE_URL_WEB_APP_ANDA_DI_SINI";
+    // URL Web App Google Apps Script Anda
+    const SPREADSHEET_API = "https://script.google.com/macros/s/AKfycbwPVgUdpardXtUp2t_5MGKPbe3h27Sd8sMZRBllW1dJ7h6t5Kx0qYFvK7W7h5F6g5G6/exec";
+
+    // Link Google Sheets Anda (untuk tombol Admin)
+    const LINK_GOOGLE_SHEETS_ADMIN = "https://docs.google.com/spreadsheets/d/";
+
+    function bukaAdminSheet() {
+        window.open(LINK_GOOGLE_SHEETS_ADMIN, '_blank');
+    }
 
     async function ambilPaketDariSheets() {
         const daftar = document.getElementById("daftarPaket");
         
-        if (SPREADSHEET_API.includes("https://script.google.com/macros/s/AKfycbwPVgUdparDxtUp2t_5MGKPbe3eh27Sd8sMZrbLLb0JBOMZu8ZE_3Gibh3JkS_gvv9u/exec") || SPREADSHEET_API === "") {
-            daftar.innerHTML = `<div style="grid-column: 1/-1; text-align: center; background: #fee2e2; color: #991b1b; padding: 20px; border-radius: 12px; font-weight: 600;">⚠️ PERINGATAN: Anda belum memasukkan URL Google Apps Script pada baris 'const SPREADSHEET_API' di bagian bawah file index.html ini.</div>`;
-            return;
-        }
-
         try {
             const res = await fetch(SPREADSHEET_API);
             const data = await res.json();
