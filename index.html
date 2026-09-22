@@ -2,12 +2,8 @@
 <html lang="id">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Indibiz - Solusi Bisnis Digital</title>
 
     <!-- =========================================================
@@ -22,8 +18,8 @@
     <meta property="og:description" content="Layanan internet cepat, stabil, dan terpercaya dari Indibiz untuk mendukung operasional dan pemasaran bisnis Anda.">
     
     <!-- Gambar Preview Banner -->
-    <meta property="og:image" content="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1200&q=80">
-    <meta property="og:image:secure_url" content="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:image:secure_url" content="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -32,7 +28,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Indibiz - Solusi Bisnis Digital">
     <meta name="twitter:description" content="Layanan internet cepat, stabil, dan terpercaya dari Indibiz untuk mendukung operasional dan pemasaran bisnis Anda.">
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1200&q=80">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80">
 
 
     <style>
@@ -41,7 +37,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
         }
 
 
@@ -51,18 +47,18 @@
 
 
         body {
-            background: #f5f7fa;
-            color: #333;
+            background: #f8fafc;
+            color: #1e293b;
         }
 
 
         /* =========================
-           NAVBAR
+            NAVBAR
         ========================= */
 
         nav {
-            background: #0078d7;
-            padding: 15px 8%;
+            background: #0f172a;
+            padding: 18px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -70,50 +66,56 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
 
 
         .logo {
-            font-size: 25px;
-            font-weight: bold;
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #38bdf8;
         }
 
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 25px;
+            gap: 30px;
         }
 
 
         nav ul li a {
-            color: white;
+            color: #cbd5e1;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.2s ease;
         }
 
 
         nav ul li a:hover {
-            opacity: .8;
+            color: #38bdf8;
         }
 
 
         /* =========================
-           HERO
+            HERO
         ========================= */
 
         .hero {
-            min-height: 500px;
-            padding: 80px 8%;
+            min-height: 560px;
+            padding: 90px 8%;
             display: flex;
             align-items: center;
 
             background:
                 linear-gradient(
-                    rgba(0,0,0,.55),
-                    rgba(0,0,0,.55)
+                    135deg,
+                    rgba(15, 23, 42, 0.88),
+                    rgba(30, 41, 59, 0.75)
                 ),
-                url("https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1600&q=80");
+                url("https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80");
 
             background-size: cover;
             background-position: center;
@@ -123,77 +125,88 @@
 
 
         .hero-content {
-            max-width: 650px;
+            max-width: 680px;
         }
 
 
         .hero h1 {
-            font-size: 42px;
+            font-size: 46px;
+            font-weight: 800;
+            letter-spacing: -1px;
             margin-bottom: 20px;
+            line-height: 1.2;
         }
 
 
         .hero p {
-            font-size: 18px;
+            font-size: 17px;
             line-height: 1.7;
-            margin-bottom: 25px;
+            color: #cbd5e1;
+            margin-bottom: 30px;
         }
 
 
         /* =========================
-           BUTTON
+            BUTTON
         ========================= */
 
         .btn {
             display: inline-block;
-            padding: 13px 25px;
-            background: #00a8ff;
+            padding: 14px 28px;
+            background: #0284c7;
             color: white;
             text-decoration: none;
-            border-radius: 7px;
-            font-weight: bold;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+            transition: all 0.2s ease;
         }
 
 
         .btn:hover {
-            background: #008bd0;
+            background: #0369a1;
+            transform: translateY(-1px);
         }
 
 
         /* =========================
-           SECTION
+            SECTION
         ========================= */
 
         section {
-            padding: 60px 8%;
+            padding: 80px 8%;
         }
 
 
         .judul {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
 
         .judul h2 {
-            font-size: 30px;
-            color: #0078d7;
-            margin-bottom: 10px;
+            font-size: 32px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
         }
 
 
         .judul p {
-            color: #666;
+            color: #64748b;
+            font-size: 16px;
         }
 
 
         /* =========================
-           KONDISI
+            KONDISI
         ========================= */
 
         .masalah {
             display: flex;
-            gap: 30px;
+            gap: 40px;
             align-items: center;
         }
 
@@ -204,189 +217,231 @@
 
 
         .masalah-text h3 {
-            font-size: 25px;
-            margin-bottom: 15px;
+            font-size: 26px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 16px;
         }
 
 
         .masalah-text p {
             line-height: 1.8;
+            color: #475569;
+            font-size: 16px;
         }
 
 
         .info-box {
             flex: 1;
             background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,.08);
+            padding: 36px;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
         }
 
 
         .info-box h3 {
-            color: #0078d7;
-            margin-bottom: 15px;
+            color: #0f172a;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
         }
 
 
         .info-box ul {
-            line-height: 2;
+            line-height: 2.2;
             padding-left: 20px;
+            color: #475569;
+            font-size: 15px;
         }
 
 
         /* =========================
-           PAKET
+            PAKET
         ========================= */
 
         .paket {
-            background: #eef6ff;
+            background: #f1f5f9;
         }
 
 
         .cards {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+            gap: 30px;
         }
 
 
         .card {
             background: white;
-            padding: 30px;
-            border-radius: 12px;
+            padding: 40px 30px;
+            border-radius: 16px;
             text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,.08);
-            transition: .3s;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            border-color: #0284c7;
+            box-shadow: 0 20px 40px rgba(2, 132, 199, 0.08);
         }
 
 
         .card h3 {
-            color: #0078d7;
-            font-size: 24px;
-            margin-bottom: 15px;
+            color: #0f172a;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 16px;
         }
 
 
         .kecepatan {
-            font-size: 32px;
-            font-weight: bold;
-            margin-bottom: 10px;
+            font-size: 34px;
+            font-weight: 800;
+            color: #0284c7;
+            margin-bottom: 8px;
         }
 
 
         .harga {
-            color: #e67e22;
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 20px;
+            color: #d97706;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 24px;
         }
 
 
         .card ul {
             list-style: none;
-            line-height: 2;
-            margin-bottom: 20px;
+            line-height: 2.2;
+            margin-bottom: 24px;
+            color: #475569;
+            font-size: 14px;
+            border-top: 1px solid #f1f5f9;
+            border-bottom: 1px solid #f1f5f9;
+            padding: 12px 0;
         }
 
 
         /* =========================
-           KEUNGGULAN
+            KEUNGGULAN
         ========================= */
 
         .keunggulan {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+            gap: 30px;
         }
 
 
         .keunggulan-box {
             background: white;
-            padding: 30px;
-            border-radius: 12px;
+            padding: 36px 30px;
+            border-radius: 16px;
             text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,.08);
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            transition: transform 0.2s ease;
+        }
+
+        .keunggulan-box:hover {
+            transform: translateY(-4px);
         }
 
 
         .icon {
-            font-size: 40px;
-            margin-bottom: 15px;
+            font-size: 44px;
+            margin-bottom: 20px;
         }
 
 
         .keunggulan-box h3 {
-            color: #0078d7;
-            margin-bottom: 10px;
+            color: #0f172a;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
         }
 
 
         .keunggulan-box p {
-            line-height: 1.6;
-            color: #666;
+            line-height: 1.7;
+            color: #64748b;
+            font-size: 15px;
         }
 
 
         /* =========================
-           KONTAK
+            KONTAK
         ========================= */
 
         .kontak {
-            background: #0078d7;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
             color: white;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
 
         .kontak h2 {
-            font-size: 30px;
-            margin-bottom: 15px;
+            font-size: 34px;
+            font-weight: 800;
+            margin-bottom: 16px;
         }
 
 
         .kontak p {
-            margin-bottom: 25px;
+            margin: 0 auto 30px auto;
+            max-width: 600px;
             line-height: 1.7;
+            color: #cbd5e1;
+            font-size: 16px;
         }
 
 
         .btn-kontak {
             background: white;
-            color: #0078d7;
+            color: #0f172a;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+        }
+
+
+        .btn-kontak:hover {
+            background: #f8fafc;
+            color: #0284c7;
         }
 
 
         /* =========================
-           FOOTER
+            FOOTER
         ========================= */
 
         footer {
-            background: #222;
-            color: white;
+            background: #090d16;
+            color: #94a3b8;
             text-align: center;
-            padding: 20px;
+            padding: 30px 20px;
+            font-size: 14px;
         }
 
 
         footer p {
-            margin: 5px 0;
+            margin: 6px 0;
         }
 
 
         /* =========================
-           RESPONSIVE - HP
+            RESPONSIVE - HP
         ========================= */
 
         @media (max-width: 768px) {
 
             nav {
-                padding: 13px 18px;
+                padding: 15px 20px;
                 flex-direction: row;
                 align-items: center;
                 gap: 12px;
@@ -394,7 +449,7 @@
             }
 
             .logo {
-                font-size: 22px;
+                font-size: 20px;
                 flex-shrink: 0;
             }
 
