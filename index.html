@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
 
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>Indibiz - Solusi Bisnis</title>
-
+    <title>Indibiz Buntok | Solusi Internet Bisnis</title>
 
     <style>
 
@@ -17,208 +13,281 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
         }
-
 
         html {
             scroll-behavior: smooth;
         }
 
-
         body {
-            background: #f5f7fa;
-            color: #333;
+            background: #f5f8fc;
+            color: #1f2937;
+            line-height: 1.6;
         }
-
 
         /* =========================
            NAVBAR
         ========================= */
 
         nav {
-            background: #0078d7;
-            padding: 15px 8%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(0, 103, 180, 0.96);
+            backdrop-filter: blur(10px);
+
+            padding: 14px 7%;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: white;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
 
+            box-shadow: 0 3px 15px rgba(0,0,0,.12);
+        }
 
         .logo {
-            font-size: 25px;
+            color: white;
+            font-size: 27px;
             font-weight: bold;
+            letter-spacing: .5px;
         }
 
+        .logo span {
+            color: #8ed8ff;
+        }
 
         nav ul {
-            list-style: none;
             display: flex;
+            list-style: none;
             gap: 25px;
+            align-items: center;
         }
-
 
         nav ul li a {
             color: white;
             text-decoration: none;
+            font-size: 14px;
             font-weight: bold;
+            transition: .3s;
         }
-
 
         nav ul li a:hover {
-            opacity: .8;
+            color: #9ddfff;
         }
 
+        .admin-btn {
+            background: white;
+            color: #0067b4 !important;
+            padding: 9px 16px;
+            border-radius: 20px;
+        }
+
+        .admin-btn:hover {
+            background: #e8f6ff;
+        }
 
         /* =========================
            HERO
         ========================= */
 
         .hero {
-            min-height: 500px;
-            padding: 80px 8%;
+            min-height: 620px;
+
             display: flex;
             align-items: center;
 
+            padding: 80px 7%;
+
+            color: white;
+
             background:
                 linear-gradient(
-                    rgba(0,0,0,.55),
-                    rgba(0,0,0,.55)
+                    90deg,
+                    rgba(0, 55, 100, .88),
+                    rgba(0, 55, 100, .58),
+                    rgba(0, 55, 100, .25)
                 ),
-                url("https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1600&q=80");
+                url("https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1800&q=85");
 
             background-size: cover;
             background-position: center;
-
-            color: white;
         }
-
 
         .hero-content {
-            max-width: 650px;
+            max-width: 720px;
         }
 
+        .badge {
+            display: inline-block;
 
-        .hero h1 {
-            font-size: 42px;
+            background: rgba(255,255,255,.15);
+            border: 1px solid rgba(255,255,255,.35);
+
+            padding: 8px 16px;
+            border-radius: 30px;
+
+            font-size: 14px;
             margin-bottom: 20px;
         }
 
+        .hero h1 {
+            font-size: 52px;
+            line-height: 1.15;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 span {
+            color: #72d4ff;
+        }
 
         .hero p {
             font-size: 18px;
-            line-height: 1.7;
-            margin-bottom: 25px;
+            max-width: 650px;
+            margin-bottom: 30px;
+            color: #eef8ff;
         }
 
-
-        /* =========================
-           BUTTON
-        ========================= */
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
 
         .btn {
             display: inline-block;
-            padding: 13px 25px;
-            background: #00a8ff;
-            color: white;
+
+            padding: 13px 23px;
+
+            border-radius: 8px;
+
             text-decoration: none;
-            border-radius: 7px;
             font-weight: bold;
+
+            transition: .3s;
         }
 
-
-        .btn:hover {
-            background: #008bd0;
+        .btn-primary {
+            background: #00a8e8;
+            color: white;
         }
 
+        .btn-primary:hover {
+            background: #008dcc;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #0067b4;
+        }
 
         /* =========================
            SECTION
         ========================= */
 
         section {
-            padding: 60px 8%;
+            padding: 80px 7%;
         }
 
-
-        .judul {
+        .section-title {
             text-align: center;
-            margin-bottom: 40px;
+            max-width: 700px;
+            margin: 0 auto 50px;
         }
 
-
-        .judul h2 {
-            font-size: 30px;
-            color: #0078d7;
-            margin-bottom: 10px;
+        .section-title .small-title {
+            color: #0088cc;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 1px;
         }
 
-
-        .judul p {
-            color: #666;
+        .section-title h2 {
+            color: #075985;
+            font-size: 34px;
+            margin: 8px 0 12px;
         }
 
+        .section-title p {
+            color: #64748b;
+        }
 
         /* =========================
            KONDISI
         ========================= */
 
-        .masalah {
-            display: flex;
-            gap: 30px;
+        .kondisi {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 45px;
             align-items: center;
         }
 
+        .kondisi-image {
+            min-height: 390px;
 
-        .masalah-text {
-            flex: 1;
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,.2),
+                    rgba(0,0,0,.2)
+                ),
+                url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=85");
+
+            background-size: cover;
+            background-position: center;
+
+            box-shadow: 0 15px 40px rgba(0,0,0,.12);
         }
 
-
-        .masalah-text h3 {
-            font-size: 25px;
+        .kondisi-text h3 {
+            color: #075985;
+            font-size: 28px;
             margin-bottom: 15px;
         }
 
-
-        .masalah-text p {
-            line-height: 1.8;
+        .kondisi-text p {
+            color: #64748b;
+            margin-bottom: 20px;
         }
 
+        .check-list {
+            list-style: none;
+        }
 
-        .info-box {
-            flex: 1;
+        .check-list li {
             background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,.08);
+            padding: 13px 16px;
+            margin-bottom: 10px;
+
+            border-radius: 10px;
+
+            box-shadow: 0 5px 18px rgba(0,0,0,.05);
         }
 
-
-        .info-box h3 {
-            color: #0078d7;
-            margin-bottom: 15px;
+        .check-list li::before {
+            content: "✓";
+            color: #009fe3;
+            font-weight: bold;
+            margin-right: 10px;
         }
-
-
-        .info-box ul {
-            line-height: 2;
-            padding-left: 20px;
-        }
-
 
         /* =========================
            PAKET
         ========================= */
 
-        .paket {
-            background: #eef6ff;
+        .paket-section {
+            background: #edf7ff;
         }
-
 
         .cards {
             display: grid;
@@ -226,172 +295,349 @@
             gap: 25px;
         }
 
-
         .card {
             background: white;
-            padding: 30px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,.08);
-            transition: .3s;
-        }
+            border-radius: 18px;
+            overflow: hidden;
 
+            box-shadow: 0 8px 30px rgba(0,0,0,.08);
+
+            transition: .3s;
+
+            border: 1px solid #e5eef5;
+        }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(0,0,0,.12);
         }
 
+        .card-image {
+            height: 170px;
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .image-10 {
+            background-image:
+                url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80");
+        }
+
+        .image-20 {
+            background-image:
+                url("https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=900&q=80");
+        }
+
+        .image-50 {
+            background-image:
+                url("https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=900&q=80");
+        }
+
+        .image-75 {
+            background-image:
+                url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80");
+        }
+
+        .card-content {
+            padding: 25px;
+        }
 
         .card h3 {
-            color: #0078d7;
-            font-size: 24px;
-            margin-bottom: 15px;
-        }
-
-
-        .kecepatan {
-            font-size: 32px;
-            font-weight: bold;
+            color: #075985;
+            font-size: 21px;
             margin-bottom: 10px;
         }
 
+        .speed {
+            font-size: 34px;
+            font-weight: bold;
+            color: #111827;
+        }
 
-        .harga {
+        .price {
             color: #e67e22;
             font-size: 20px;
             font-weight: bold;
-            margin-bottom: 20px;
+            margin: 10px 0 18px;
         }
 
+        .price span {
+            color: #64748b;
+            font-size: 13px;
+            font-weight: normal;
+        }
 
         .card ul {
             list-style: none;
-            line-height: 2;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
+        .card ul li {
+            padding: 5px 0;
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .card ul li::before {
+            content: "✓";
+            color: #00a8e8;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .card .btn {
+            width: 100%;
+            text-align: center;
+        }
 
         /* =========================
            KEUNGGULAN
         ========================= */
 
-        .keunggulan {
+        .advantages {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 25px;
         }
 
-
-        .keunggulan-box {
+        .advantage {
             background: white;
-            padding: 30px;
-            border-radius: 12px;
+            padding: 35px 25px;
+            border-radius: 18px;
             text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,.08);
+
+            box-shadow: 0 8px 25px rgba(0,0,0,.07);
+
+            transition: .3s;
         }
 
-
-        .icon {
-            font-size: 40px;
-            margin-bottom: 15px;
+        .advantage:hover {
+            transform: translateY(-5px);
         }
 
+        .advantage-icon {
+            width: 70px;
+            height: 70px;
 
-        .keunggulan-box h3 {
-            color: #0078d7;
+            margin: 0 auto 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #e7f7ff;
+            border-radius: 50%;
+
+            font-size: 32px;
+        }
+
+        .advantage h3 {
+            color: #075985;
             margin-bottom: 10px;
         }
 
-
-        .keunggulan-box p {
-            line-height: 1.6;
-            color: #666;
+        .advantage p {
+            color: #64748b;
+            font-size: 14px;
         }
 
+        /* =========================
+           INFORMASI
+        ========================= */
+
+        .info-area {
+            background: #f1f5f9;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .info {
+            background: white;
+            padding: 28px;
+            border-radius: 15px;
+            border-left: 5px solid #009fe3;
+        }
+
+        .info h3 {
+            color: #075985;
+            margin-bottom: 8px;
+        }
+
+        .info p {
+            color: #64748b;
+            font-size: 14px;
+        }
 
         /* =========================
            KONTAK
         ========================= */
 
-        .kontak {
-            background: #0078d7;
+        .contact {
+            background:
+                linear-gradient(
+                    135deg,
+                    #0067b4,
+                    #008dcc
+                );
+
             color: white;
             text-align: center;
         }
 
-
-        .kontak h2 {
-            font-size: 30px;
-            margin-bottom: 15px;
+        .contact h2 {
+            font-size: 35px;
+            margin-bottom: 12px;
         }
 
-
-        .kontak p {
-            margin-bottom: 25px;
-            line-height: 1.7;
+        .contact p {
+            max-width: 650px;
+            margin: 0 auto 25px;
+            color: #e8f7ff;
         }
 
-
-        .btn-kontak {
+        .contact .btn {
             background: white;
-            color: #0078d7;
+            color: #0067b4;
         }
 
+        .contact .btn:hover {
+            background: #e9f7ff;
+        }
 
         /* =========================
            FOOTER
         ========================= */
 
         footer {
-            background: #222;
+            background: #10202e;
             color: white;
+            padding: 35px 7%;
             text-align: center;
-            padding: 20px;
         }
 
+        footer .footer-logo {
+            font-size: 23px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
 
         footer p {
-            margin: 5px 0;
+            color: #aab8c4;
+            font-size: 13px;
         }
 
+        /* =========================
+           TOMBOL ATAS
+        ========================= */
+
+        .top-button {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+
+            width: 45px;
+            height: 45px;
+
+            background: #0078d7;
+            color: white;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-decoration: none;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,.2);
+
+            z-index: 99;
+        }
 
         /* =========================
            RESPONSIVE
         ========================= */
 
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
 
             nav {
-                flex-direction: column;
-                gap: 15px;
+                padding: 14px 5%;
             }
-
 
             nav ul {
                 gap: 12px;
-                font-size: 14px;
-                flex-wrap: wrap;
-                justify-content: center;
             }
 
+            .hero {
+                min-height: 550px;
+            }
 
             .hero h1 {
-                font-size: 32px;
+                font-size: 40px;
             }
 
+            .cards,
+            .advantages,
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
 
-            .masalah {
+            .kondisi {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 650px) {
+
+            nav {
                 flex-direction: column;
+                gap: 12px;
             }
 
+            nav ul {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
 
-            .cards {
+            .logo {
+                font-size: 24px;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+
+            .hero {
+                min-height: 600px;
+                padding: 60px 5%;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .cards,
+            .advantages,
+            .info-grid {
                 grid-template-columns: 1fr;
             }
 
+            .section-title h2 {
+                font-size: 28px;
+            }
 
-            .keunggulan {
-                grid-template-columns: 1fr;
+            .kondisi-image {
+                min-height: 280px;
             }
 
         }
@@ -411,51 +657,33 @@
 <nav>
 
     <div class="logo">
-        Indibiz
+        Indi<span>biz</span>
     </div>
-
 
     <ul>
 
         <li>
-            <a href="#beranda">
-                Beranda
-            </a>
+            <a href="#beranda">Beranda</a>
         </li>
 
-
         <li>
-            <a href="#kondisi">
-                Kondisi
-            </a>
+            <a href="#kondisi">Kondisi</a>
         </li>
 
-
         <li>
-            <a href="#paket">
-                Paket
-            </a>
+            <a href="#paket">Paket</a>
         </li>
 
-
         <li>
-            <a href="#keunggulan">
-                Keunggulan
-            </a>
+            <a href="#keunggulan">Keunggulan</a>
         </li>
 
-
         <li>
-            <a href="#kontak">
-                Kontak
-            </a>
+            <a href="#kontak">Kontak</a>
         </li>
 
-
-        <!-- TOMBOL ADMIN -->
-
         <li>
-            <a href="admin.html">
+            <a href="admin.html" class="admin-btn">
                 Admin
             </a>
         </li>
@@ -465,44 +693,45 @@
 </nav>
 
 
-
 <!-- =========================
      HERO
 ========================= -->
 
-<section
-    class="hero"
-    id="beranda">
+<section class="hero" id="beranda">
 
     <div class="hero-content">
 
+        <div class="badge">
+            Solusi Internet untuk Bisnis
+        </div>
+
         <h1>
-            Tetap Terhubung di Tengah Kabut Asap
+            Tetap Terhubung,
+            <span>Bisnis Tetap Berjalan</span>
         </h1>
 
-
         <p>
-
-            Kabut asap dapat menghambat aktivitas masyarakat
-            dan pelaku usaha. Dengan koneksi internet yang
-            mendukung, kegiatan bisnis dan komunikasi dapat
-            tetap berjalan dengan lebih mudah.
-
+            Indibiz membantu mendukung kebutuhan internet,
+            komunikasi, pemasaran digital, dan aktivitas bisnis
+            agar tetap dapat berjalan dengan lebih mudah,
+            termasuk saat kondisi lingkungan kurang mendukung.
         </p>
 
+        <div class="hero-buttons">
 
-        <a
-            href="#paket"
-            class="btn">
+            <a href="#paket" class="btn btn-primary">
+                Lihat Paket
+            </a>
 
-            Lihat Paket Indibiz
+            <a href="#kontak" class="btn btn-outline">
+                Hubungi Kami
+            </a>
 
-        </a>
+        </div>
 
     </div>
 
 </section>
-
 
 
 <!-- =========================
@@ -511,75 +740,64 @@
 
 <section id="kondisi">
 
-    <div class="judul">
+    <div class="section-title">
+
+        <div class="small-title">
+            Kondisi Lingkungan
+        </div>
 
         <h2>
-            Kondisi Kabut Asap
+            Mendukung Aktivitas Bisnis
         </h2>
 
-
         <p>
-
-            Internet membantu aktivitas tetap berjalan ketika
-            kondisi lingkungan kurang mendukung.
-
+            Koneksi internet dapat membantu aktivitas
+            digital tetap berjalan ketika aktivitas
+            di luar ruangan menjadi terbatas.
         </p>
 
     </div>
 
 
-    <div class="masalah">
+    <div class="kondisi">
+
+        <div class="kondisi-image"></div>
 
 
-        <div class="masalah-text">
+        <div class="kondisi-text">
 
             <h3>
-                Mendukung Aktivitas Bisnis
+                Internet untuk Mendukung Produktivitas
             </h3>
-
 
             <p>
-
-                Kondisi kabut asap dapat membuat aktivitas
-                di luar ruangan menjadi terbatas. Oleh karena
-                itu, koneksi internet dapat membantu pelaku
-                usaha melakukan komunikasi, pemasaran,
-                pelayanan pelanggan, dan aktivitas digital
-                dari dalam ruangan.
-
+                Kondisi kabut asap dapat menyebabkan beberapa
+                aktivitas di luar ruangan menjadi kurang nyaman.
+                Dengan koneksi internet yang memadai, pelaku
+                usaha tetap dapat melakukan berbagai aktivitas
+                digital dari dalam ruangan.
             </p>
 
-        </div>
-
-
-
-        <div class="info-box">
-
-            <h3>
-                Indibiz untuk Bisnis
-            </h3>
-
-
-            <ul>
+            <ul class="check-list">
 
                 <li>
-                    Mendukung komunikasi dengan pelanggan
+                    Komunikasi dengan pelanggan
                 </li>
 
                 <li>
-                    Mendukung pemasaran secara digital
+                    Pemasaran melalui media digital
                 </li>
 
                 <li>
-                    Membantu aktivitas bisnis secara online
+                    Pelayanan pelanggan secara online
                 </li>
 
                 <li>
-                    Mendukung akses informasi
+                    Akses informasi dan layanan digital
                 </li>
 
                 <li>
-                    Membantu pekerjaan dari dalam ruangan
+                    Mendukung pekerjaan dari dalam ruangan
                 </li>
 
             </ul>
@@ -591,41 +809,37 @@
 </section>
 
 
-
 <!-- =========================
      PAKET
 ========================= -->
 
-<section
-    class="paket"
-    id="paket">
+<section class="paket-section" id="paket">
 
-    <div class="judul">
+    <div class="section-title">
+
+        <div class="small-title">
+            Pilihan Paket
+        </div>
 
         <h2>
-            Pilihan Paket Indibiz
+            Paket Internet Indibiz
         </h2>
 
-
         <p>
-
-            Pilih paket internet sesuai kebutuhan bisnis Anda.
-
+            Pilih paket sesuai kebutuhan aktivitas bisnis.
+            Harga dapat diperbarui melalui halaman Admin.
         </p>
 
     </div>
 
 
-    <!-- Paket akan ditampilkan dari localStorage -->
+    <div class="cards" id="daftarPaket">
 
-    <div
-        class="cards"
-        id="daftarPaket">
+        <!-- Paket dibuat oleh JavaScript -->
 
     </div>
 
 </section>
-
 
 
 <!-- =========================
@@ -634,133 +848,183 @@
 
 <section id="keunggulan">
 
-    <div class="judul">
+    <div class="section-title">
+
+        <div class="small-title">
+            Keunggulan
+        </div>
 
         <h2>
-            Keunggulan Indibiz
+            Mendukung Kebutuhan Digital
         </h2>
 
-
         <p>
-
-            Mendukung kebutuhan digital untuk berbagai
-            aktivitas bisnis.
-
+            Internet dapat digunakan untuk berbagai kebutuhan
+            komunikasi dan aktivitas bisnis.
         </p>
 
     </div>
 
 
+    <div class="advantages">
 
-    <div class="keunggulan">
 
+        <div class="advantage">
 
-        <div class="keunggulan-box">
-
-            <div class="icon">
+            <div class="advantage-icon">
                 🌐
             </div>
-
 
             <h3>
                 Koneksi Internet
             </h3>
 
-
             <p>
-
-                Mendukung aktivitas bisnis dan komunikasi
-                melalui internet.
-
+                Mendukung aktivitas digital dan komunikasi
+                dalam menjalankan kegiatan bisnis.
             </p>
 
         </div>
 
 
+        <div class="advantage">
 
-        <div class="keunggulan-box">
-
-            <div class="icon">
+            <div class="advantage-icon">
                 💼
             </div>
 
-
             <h3>
-                Untuk Bisnis
+                Kebutuhan Bisnis
             </h3>
 
-
             <p>
-
-                Dapat digunakan untuk mendukung kebutuhan
-                digital pelaku usaha.
-
+                Dapat digunakan untuk membantu berbagai
+                aktivitas bisnis secara online.
             </p>
 
         </div>
 
 
+        <div class="advantage">
 
-        <div class="keunggulan-box">
-
-            <div class="icon">
+            <div class="advantage-icon">
                 📱
             </div>
-
 
             <h3>
                 Pemasaran Digital
             </h3>
 
-
             <p>
-
-                Membantu pelaku usaha menjalankan kegiatan
-                pemasaran secara online.
-
+                Mendukung promosi dan komunikasi dengan
+                pelanggan melalui media digital.
             </p>
 
         </div>
+
 
     </div>
 
 </section>
 
+
+<!-- =========================
+     INFORMASI
+========================= -->
+
+<section class="info-area">
+
+    <div class="section-title">
+
+        <div class="small-title">
+            Informasi
+        </div>
+
+        <h2>
+            Mengapa Internet Penting?
+        </h2>
+
+    </div>
+
+
+    <div class="info-grid">
+
+
+        <div class="info">
+
+            <h3>
+                Komunikasi
+            </h3>
+
+            <p>
+                Membantu komunikasi dengan pelanggan,
+                rekan kerja, dan mitra bisnis secara online.
+            </p>
+
+        </div>
+
+
+        <div class="info">
+
+            <h3>
+                Produktivitas
+            </h3>
+
+            <p>
+                Membantu pekerjaan yang membutuhkan akses
+                internet dan berbagai layanan digital.
+            </p>
+
+        </div>
+
+
+        <div class="info">
+
+            <h3>
+                Promosi
+            </h3>
+
+            <p>
+                Mendukung kegiatan pemasaran melalui
+                platform dan media digital.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
 
 
 <!-- =========================
      KONTAK
 ========================= -->
 
-<section
-    class="kontak"
-    id="kontak">
+<section class="contact" id="kontak">
 
     <h2>
         Tertarik Menggunakan Indibiz?
     </h2>
 
-
     <p>
-
         Hubungi kami untuk mendapatkan informasi mengenai
         paket dan layanan Indibiz yang sesuai dengan
         kebutuhan bisnis Anda.
-
     </p>
 
+    <!-- GANTI NOMOR DI BAWAH -->
 
     <a
         href="https://wa.me/628xxxxxxxxxx"
-        class="btn btn-kontak"
-        target="_blank">
+        target="_blank"
+        class="btn">
 
-        Hubungi Kami
+        💬 Hubungi Kami melalui WhatsApp
 
     </a>
 
 </section>
-
 
 
 <!-- =========================
@@ -769,17 +1033,33 @@
 
 <footer>
 
+    <div class="footer-logo">
+        Indibiz
+    </div>
+
     <p>
-        © 2026 Indibiz | Website Pendukung Pemasaran
+        Website Pendukung Pemasaran Indibiz
     </p>
 
-
     <p>
-        Dibuat untuk kegiatan PKL RPL
+        Dibuat untuk kegiatan PKL RPL © 2026
     </p>
 
 </footer>
 
+
+<!-- =========================
+     TOMBOL KEMBALI KE ATAS
+========================= -->
+
+<a
+    href="#beranda"
+    class="top-button"
+    title="Kembali ke atas">
+
+    ↑
+
+</a>
 
 
 <!-- =========================
@@ -788,25 +1068,19 @@
 
 <script>
 
-
 function tampilkanPaket() {
 
-
-    let paket =
-        JSON.parse(
-            localStorage.getItem(
-                "paketIndibiz"
-            )
-        );
+    let paket = JSON.parse(
+        localStorage.getItem("paketIndibiz")
+    );
 
 
     /*
-     * Jika belum ada data,
-     * buat paket awal.
-     */
+       Jika data dari Admin belum tersedia,
+       gunakan data awal.
+    */
 
     if (!Array.isArray(paket)) {
-
 
         paket = [
 
@@ -814,23 +1088,32 @@ function tampilkanPaket() {
                 nama: "Indibiz 10 Mbps",
                 kecepatan: "10 Mbps",
                 harga: 271950,
-                promo: "Paket Internet Bisnis"
+                promo: "Paket Internet Bisnis",
+                gambar: "image-10"
             },
-
 
             {
                 nama: "Indibiz 20 Mbps",
                 kecepatan: "20 Mbps",
                 harga: 310800,
-                promo: "Paket Internet Bisnis"
+                promo: "Paket Internet Bisnis",
+                gambar: "image-20"
             },
-
 
             {
                 nama: "Indibiz 50 Mbps",
                 kecepatan: "50 Mbps",
                 harga: 356000,
-                promo: "Paket Internet Bisnis"
+                promo: "Paket Internet Bisnis",
+                gambar: "image-50"
+            },
+
+            {
+                nama: "Indibiz 75 Mbps",
+                kecepatan: "75 Mbps",
+                harga: 406000,
+                promo: "Paket Internet Bisnis",
+                gambar: "image-75"
             }
 
         ];
@@ -845,40 +1128,70 @@ function tampilkanPaket() {
 
 
     const daftar =
-        document.getElementById(
-            "daftarPaket"
-        );
+        document.getElementById("daftarPaket");
 
 
     daftar.innerHTML = "";
 
 
-    paket.forEach(
-        function(item) {
+    paket.forEach(function(item, index) {
+
+        /*
+           Menentukan gambar berdasarkan
+           urutan paket.
+        */
+
+        let gambar = item.gambar;
 
 
-            daftar.innerHTML += `
+        if (!gambar) {
 
-                <div class="card">
+            if (index === 0) {
+                gambar = "image-10";
+            }
+
+            else if (index === 1) {
+                gambar = "image-20";
+            }
+
+            else if (index === 2) {
+                gambar = "image-50";
+            }
+
+            else {
+                gambar = "image-75";
+            }
+
+        }
+
+
+        daftar.innerHTML += `
+
+            <div class="card">
+
+                <div class="card-image ${gambar}"></div>
+
+
+                <div class="card-content">
 
                     <h3>
                         ${item.nama}
                     </h3>
 
 
-                    <div class="kecepatan">
-
+                    <div class="speed">
                         ${item.kecepatan}
-
                     </div>
 
 
-                    <div class="harga">
+                    <div class="price">
 
                         Rp${Number(item.harga)
                             .toLocaleString("id-ID")}
 
-                        / bulan
+                        <span>
+                            / bulan
+                        </span>
 
                     </div>
 
@@ -903,7 +1216,7 @@ function tampilkanPaket() {
 
                     <a
                         href="#kontak"
-                        class="btn">
+                        class="btn btn-primary">
 
                         Pilih Paket
 
@@ -911,21 +1224,19 @@ function tampilkanPaket() {
 
                 </div>
 
-            `;
+            </div>
 
-        }
-    );
+        `;
+
+    });
 
 }
 
 
 tampilkanPaket();
 
-
 </script>
 
 
 </body>
-
 </html>
-
