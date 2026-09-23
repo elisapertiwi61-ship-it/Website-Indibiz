@@ -505,16 +505,6 @@
             padding: 18px 0;
         }
 
-        /* AREA DESKRIPSI (SILAKAN KETIK MANUAL DI SINI / DI HTML INI) */
-        .card-desc {
-            font-size: 14px;
-            font-weight: 600;
-            color: #0284c7 !important;
-            margin-bottom: 20px;
-            line-height: 1.5;
-            min-height: 40px;
-        }
-
         .card .btn {
             width: 100%;
             max-width: 100%;
@@ -818,6 +808,7 @@
                 padding: 24px 18px;
             }
 
+            /* Perbaikan Utama: Kartu Paket Tersusun Rapi Sempurna Satu Kolom di HP */
             .cards, .keunggulan {
                 grid-template-columns: 1fr;
                 gap: 18px;
@@ -1060,9 +1051,9 @@
                     <line x1="2" y1="12" x2="22" y2="12"></line>
 
                     <path d="M12 2a15.3 15.3 0 0 1 4 10
-                            15.3 15.3 0 0 1-4 10
-                            15.3 15.3 0 0 1-4-10
-                            15.3 15.3 0 0 1 4-10z"></path>
+                             15.3 15.3 0 0 1-4 10
+                             15.3 15.3 0 0 1-4-10
+                             15.3 15.3 0 0 1 4-10z"></path>
 
                 </svg>
 
@@ -1099,7 +1090,7 @@
                           ry="2"></rect>
 
                     <path d="M16 21V5a2 2 0 0 0-2-2h-4
-                           a2 2 0 0 0-2 2v16"></path>
+                             a2 2 0 0 0-2 2v16"></path>
 
                 </svg>
 
@@ -1158,100 +1149,283 @@
 
 </section>
 
-<!-- KONTAK CTA -->
-<section id="kontak">
-    <div class="kontak" data-aos="zoom-in" data-aos-duration="800">
-        <h2>Butuh Bantuan & Konsultasi Paket?</h2>
-        <p>Hubungi tim marketing kami melalui WhatsApp untuk mendapatkan penawaran terbaik dan pemasangan cepat untuk bisnis Anda.</p>
-        <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20tertarik%20dengan%20paket%20Indibiz" target="_blank" class="btn btn-kontak">
-            Hubungi via WhatsApp
-        </a>
-    </div>
+<!-- KONTAK -->
+<section class="kontak" id="kontak" data-aos="zoom-in" data-aos-duration="800">
+
+    <h2>
+        Tertarik Menggunakan Indibiz?
+    </h2>
+
+    <p>
+        Hubungi kami melalui WhatsApp untuk mendapatkan
+        informasi lengkap mengenai paket dan layanan
+        Indibiz yang sesuai dengan kebutuhan bisnis Anda.
+    </p>
+
+    <a href="https://wa.me/6285167217306?text=Halo%20Admin%20Indibiz,%20saya%20ingin%20bertanya%20mengenai%20layanan%20dan%20pemasangan%20paket%20internet."
+       class="btn btn-kontak"
+       target="_blank">
+
+        <svg width="20" height="20"
+             viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2"
+             stroke-linecap="round"
+             stroke-linejoin="round">
+
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8
+                     8.5 8.5 0 0 1-7.6 4.7
+                     8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7
+                     a8.38 8.38 0 0 1-.9-3.8
+                     8.5 8.5 0 0 1 4.7-7.6
+                     8.38 8.38 0 0 1 3.8-.9h.5
+                     a8.48 8.48 0 0 1 8 8v.5z"></path>
+
+        </svg>
+
+        Hubungi Kami via WhatsApp
+
+    </a>
+
 </section>
 
 <!-- FOOTER -->
 <footer>
-    <p>&copy; 2026 Indibiz. Seluruh hak cipta dilindungi.</p>
-    <p>Solusi Bisnis Digital Terpercaya di Indonesia</p>
+
+    <p>
+        © 2026 Indibiz | Website Pendukung Pemasaran
+    </p>
+
+    <p>
+        Dibuat untuk membantu pemasaran di kondisi kabut asap
+    </p>
+
 </footer>
 
-<!-- AOS JS -->
+
+<!-- AOS ANIMATION SCRIPT -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init({
-        once: true,
-        offset: 100
-    });
-
-    // Render data kartu paket dengan kotak deskripsi manual (kosong/bebas Anda isi teksnya)
-    window.addEventListener('DOMContentLoaded', () => {
-        const daftarPaket = document.getElementById('daftarPaket');
-        
-        setTimeout(() => {
-            daftarPaket.innerHTML = `
-                <div class="card" data-aos="fade-up" data-aos-duration="600">
-                    <div>
-                        <h3>Indibiz Starter</h3>
-                        <div class="kecepatan">20 Mbps</div>
-                        <div class="harga">Rp250.000 / bulan</div>
-                        
-                        <!-- SILAKAN KETIK DESKRIPSI ANDA DI BAWAH INI -->
-                        <div class="card-desc">
-                            Ketik deskripsi paket pertama Anda di sini...
-                        </div>
-
-                        <ul>
-                            <li>Internet Cepat & Stabil</li>
-                            <li>Cocok untuk UMKM</li>
-                            <li>Dukungan Teknis 24/7</li>
-                        </ul>
-                    </div>
-                    <a href="#kontak" class="btn">Pilih Paket</a>
-                </div>
-
-                <div class="card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
-                    <div>
-                        <h3>Indibiz Professional</h3>
-                        <div class="kecepatan">50 Mbps</div>
-                        <div class="harga">Rp356.000 / bulan</div>
-                        
-                        <!-- SILAKAN KETIK DESKRIPSI ANDA DI BAWAH INI -->
-                        <div class="card-desc">
-                            Ketik deskripsi paket kedua Anda di sini...
-                        </div>
-
-                        <ul>
-                            <li>IP Publik Dinamis</li>
-                            <li>Prioritas Jaringan Bisnis</li>
-                            <li>Keamanan Ekstra</li>
-                        </ul>
-                    </div>
-                    <a href="#kontak" class="btn">Pilih Paket</a>
-                </div>
-
-                <div class="card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
-                    <div>
-                        <h3>Indibiz Enterprise</h3>
-                        <div class="kecepatan">100 Mbps</div>
-                        <div class="harga">Rp750.000 / bulan</div>
-                        
-                        <!-- SILAKAN KETIK DESKRIPSI ANDA DI BAWAH INI -->
-                        <div class="card-desc">
-                            Ketik deskripsi paket ketiga Anda di sini...
-                        </div>
-
-                        <ul>
-                            <li>Bandwidth Simetris 1:1</li>
-                            <li>Dedicated Account Manager</li>
-                            <li>Performa Tanpa Batas</li>
-                        </ul>
-                    </div>
-                    <a href="#kontak" class="btn">Pilih Paket</a>
-                </div>
-            `;
-        }, 500);
+        once: true, // Animasi berjalan sekali saat digulir ke bawah
+        offset: 80,  // Jarak pemicu animasi
     });
 </script>
 
+<!-- JAVASCRIPT -->
+<script>
+
+/* ==========================================
+   SUPABASE
+========================================== */
+
+const SUPABASE_URL =
+    "https://pafuuilpkvjdrdqbvzdz.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_XODCYXQbalidDA1geqNVtQ_OuzyJP7h";
+
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+    );
+
+
+/* ==========================================
+   NOMOR WHATSAPP ADMIN
+========================================== */
+
+const NOMOR_WA_ADMIN =
+    "6285167217306";
+
+
+/* ==========================================
+   TAMPILKAN PAKET DARI DATABASE
+========================================== */
+
+async function tampilkanPaket() {
+
+    const daftar =
+        document.getElementById("daftarPaket");
+
+
+     /* TAMPILKAN LOADING */
+
+    daftar.innerHTML = `
+        <div style="
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px;
+            color: #64748b;
+        ">
+            <div class="spinner"></div>
+            Memuat paket...
+        </div>
+    `;
+
+
+    /* AMBIL DATA DARI SUPABASE */
+
+    const { data: paket, error } =
+        await supabaseClient
+
+            .from("paket_indibiz")
+
+            .select("*")
+
+            .order("id", {
+                ascending: true
+            });
+
+
+    /* JIKA ERROR */
+
+    if (error) {
+
+        console.error(
+            "Gagal mengambil paket:",
+            error
+        );
+
+
+        daftar.innerHTML = `
+            <div style="
+                grid-column: 1 / -1;
+                text-align: center;
+                padding: 30px;
+                color: #ef4444;
+            ">
+                Gagal memuat paket.
+                <br>
+                Silakan refresh halaman.
+            </div>
+        `;
+
+        return;
+    }
+
+
+    /* KOSONG */
+
+    if (!paket || paket.length === 0) {
+
+        daftar.innerHTML = `
+            <div style="
+                grid-column: 1 / -1;
+                text-align: center;
+                padding: 30px;
+                color: #64748b;
+            ">
+                Belum ada paket tersedia.
+            </div>
+        `;
+
+        return;
+    }
+
+
+    /* KOSONGKAN DAFTAR */
+
+    daftar.innerHTML = "";
+
+
+    /* TAMPILKAN SEMUA DATA */
+
+    paket.forEach(function(item, index) {
+
+
+        const nama =
+            item.Nama || "Indibiz";
+
+
+        const kecepatan =
+            item.Kecepatan || "-";
+
+
+        const harga =
+            Number(item.Harga || 0);
+
+
+        const promo =
+            item.Promo ||
+            "Paket Internet Bisnis";
+
+
+        const pesanWA =
+            encodeURIComponent(
+
+                `Halo Admin Indibiz, saya tertarik untuk berlangganan paket *${nama}* (${kecepatan}) dengan harga Rp${harga.toLocaleString("id-ID")}/bulan. Mohon informasi selengkapnya.`
+
+            );
+
+
+        const linkWA =
+            `https://wa.me/${NOMOR_WA_ADMIN}?text=${pesanWA}`;
+
+        // Memberikan delay animasi berurutan (stagger) untuk setiap card
+        const delayAnimasi = index * 150;
+
+        daftar.innerHTML += `
+
+            <div class="card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="${delayAnimasi}">
+
+                <div>
+
+                    <h3>
+                        ${nama}
+                    </h3>
+
+
+                    <div class="kecepatan">
+                        ${kecepatan}
+                    </div>
+
+
+                    <div class="harga">
+                        Rp${harga.toLocaleString("id-ID")}
+                        / bulan
+                    </div>
+
+
+                    <ul>
+
+                        <li>
+                            ${promo}
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <a href="${linkWA}"
+                   target="_blank"
+                   class="btn">
+
+                    Pilih Paket
+
+                </a>
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+
+/* ==========================================
+   JALANKAN SAAT WEBSITE DIBUKA
+========================================== */
+
+tampilkanPaket();
+
+</script>
+
 </body>
+
 </html>
