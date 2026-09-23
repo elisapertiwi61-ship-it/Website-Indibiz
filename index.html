@@ -57,13 +57,31 @@
             scroll-behavior: smooth;
             background-color: #f8fafc !important;
             color: #0f172a !important;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
         }
 
         body {
             background-color: var(--bg-subtle) !important;
             color: var(--text-main) !important;
             -webkit-font-smoothing: antialiased;
+            width: 100%;
+            max-width: 100%;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Mencegah efek animasi/AOS keluar dari lebar layar HP */
+        section,
+        nav,
+        footer {
+            max-width: 100%;
+            overflow-x: clip;
+        }
+
+        [data-aos] {
+            max-width: 100%;
         }
 
         /* NAVBAR ENTERPRISE */
@@ -712,13 +730,15 @@
 
             nav ul {
                 display: flex;
-                overflow-x: auto;
-                white-space: nowrap;
-                padding-bottom: 4px;
+                overflow-x: hidden;
+                overflow-y: visible;
+                white-space: normal;
+                flex-wrap: wrap;
+                padding-bottom: 2px;
                 gap: 8px;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-                justify-content: flex-start;
+                width: 100%;
+                max-width: 100%;
+                justify-content: center;
             }
 
             nav ul::-webkit-scrollbar {
@@ -857,6 +877,41 @@
             .btn-kontak {
                 max-width: 100%;
                 width: 100%;
+            }
+        }
+
+        /* PENGUNCI LAYAR HP: animasi tidak boleh membuat halaman bergeser ke samping */
+        @media (max-width: 768px) {
+            html,
+            body {
+                width: 100%;
+                max-width: 100%;
+                min-width: 0;
+                overflow-x: hidden !important;
+                overscroll-behavior-x: none;
+            }
+
+            .hero::before,
+            .hero::after,
+            .kontak::before {
+                max-width: 100vw;
+            }
+
+            .hero,
+            .kontak,
+            .card,
+            .keunggulan-box,
+            .info-box,
+            .masalah,
+            .cards,
+            .keunggulan {
+                max-width: 100%;
+                min-width: 0;
+            }
+
+            [data-aos] {
+                transform: none;
+                will-change: auto;
             }
         }
     </style>
