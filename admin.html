@@ -15,6 +15,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+    <!-- SUPABASE -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
     <style>
 
         :root {
@@ -90,6 +93,7 @@
 
         .btn-kembali:hover {
             background: rgba(255, 255, 255, 0.15) !important;
+            transform: translateY(-1px);
         }
 
         /* CONTAINER */
@@ -111,6 +115,7 @@
             border: 1px solid var(--border-color);
             box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
             margin-bottom: 30px;
+            transition: all 0.2s ease;
         }
 
         h2 {
@@ -148,6 +153,39 @@
             border-color: var(--brand-primary);
             background: #ffffff !important;
             box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.1);
+            transform: translateY(-1px);
+        }
+
+        /* WRAPPER PASSWORD DENGAN TOMBOL MATA */
+        .password-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .password-wrapper input {
+            padding-right: 48px;
+        }
+
+        .btn-toggle-password {
+            position: absolute;
+            right: 12px;
+            background: transparent !important;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            box-shadow: none !important;
+            margin: 0 !important;
+            width: auto !important;
+        }
+
+        .btn-toggle-password:hover {
+            color: var(--brand-primary);
+            transform: none !important;
         }
 
         /* BUTTONS */
@@ -170,8 +208,12 @@
         }
 
         .btn-primary:hover {
-            transform: translateY(-1px);
+            transform: translateY(-2px);
             box-shadow: 0 12px 20px -4px rgba(2, 132, 199, 0.4);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
         }
 
         .btn-action-group {
@@ -188,6 +230,7 @@
 
         .btn-edit:hover {
             background: #bae6fd !important;
+            transform: translateY(-1px);
         }
 
         .btn-danger {
@@ -198,6 +241,7 @@
 
         .btn-danger:hover {
             background: #fee2e2 !important;
+            transform: translateY(-1px);
         }
 
         .btn-logout {
@@ -207,15 +251,29 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
         }
 
-        /* CARD ITEM PAKET */
+        .btn-logout:hover {
+            background: #1e293b !important;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(15, 23, 42, 0.25);
+        }
+
+        /* CARD ITEM PAKET DENGAN ANIMASI */
         .paket-admin {
             border: 1px solid var(--border-color);
             padding: 20px;
             margin-top: 16px;
             border-radius: var(--radius-md);
             background: #f8fafc !important;
+            transition: all 0.2s ease;
+        }
+
+        .paket-admin:hover {
+            border-color: var(--brand-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(2, 132, 199, 0.1);
         }
 
         .paket-admin h3 {
@@ -250,16 +308,20 @@
         }
 
         @media (max-width: 600px) {
+
             header {
                 padding: 16px 5%;
             }
+
             .container {
                 width: 92%;
                 margin: 20px auto;
             }
+
             .box {
                 padding: 24px 18px;
             }
+
         }
 
     </style>
@@ -270,271 +332,827 @@
 
 <!-- HEADER -->
 <header>
+
     <div class="header-title">
-        <h1>Admin Indibiz</h1>
-        <p>Kelola Paket & Promo Internet</p>
+
+        <h1>
+            Admin Indibiz
+        </h1>
+
+        <p>
+            Kelola Paket & Promo Internet
+        </p>
+
     </div>
+
     <a href="index.html" class="btn-kembali">
         ← Ke Website
     </a>
+
 </header>
+
 
 <!-- FORM LOGIN -->
 <div id="loginBox" class="container login-container">
-    <div class="box">
-        <h2>Login Admin</h2>
-        <label for="password">Password Panel</label>
-        <input 
-            type="password" 
-            id="password" 
-            placeholder="Masukkan password admin" 
-            onkeydown="if(event.key === 'Enter') login()">
 
-        <button class="btn-primary" onclick="login()">
+    <div class="box">
+
+        <h2>
+            Login Admin
+        </h2>
+
+        <label for="password">
+            Password Panel
+        </label>
+
+        <div class="password-wrapper">
+            <input
+                type="password"
+                id="password"
+                placeholder="Masukkan password admin"
+                onkeydown="if(event.key === 'Enter') login()">
+            
+            <button type="button" class="btn-toggle-password" onclick="togglePassword()" id="togglePasswordBtn" title="Lihat Password">
+                <!-- Ikon Mata Tertutup (Default) -->
+                <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                    <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+            </button>
+        </div>
+
+        <button
+            class="btn-primary"
+            onclick="login()">
+
             Masuk ke Panel
+
         </button>
 
         <p id="loginMessage" class="pesan"></p>
+
     </div>
+
 </div>
+
 
 <!-- PANEL UTAMA ADMIN -->
 <div id="adminPanel" class="container">
 
     <div style="display: flex; justify-content: flex-end;">
-        <button class="btn-logout" onclick="logout()">
+
+        <button
+            class="btn-logout"
+            onclick="logout()">
+
             🔒 Keluar dari Admin
+
         </button>
+
     </div>
+
 
     <!-- TAMBAH PAKET -->
     <div class="box">
-        <h2>Tambah Paket Baru</h2>
 
-        <label for="namaPaket">Nama Paket</label>
-        <input type="text" id="namaPaket" placeholder="Contoh: Indibiz 10 Mbps">
+        <h2>
+            Tambah Paket Baru
+        </h2>
 
-        <label for="kecepatan">Kecepatan</label>
-        <input type="text" id="kecepatan" placeholder="Contoh: 10 Mbps">
 
-        <label for="harga">Harga (Rp)</label>
-        <input type="number" id="harga" placeholder="Contoh: 271950">
+        <label for="namaPaket">
+            Nama Paket
+        </label>
 
-        <label for="promo">Keterangan / Promo</label>
-        <input type="text" id="promo" placeholder="Contoh: Paket Internet Bisnis">
+        <input
+            type="text"
+            id="namaPaket"
+            placeholder="Contoh: Indibiz 10 Mbps">
 
-        <button class="btn-primary" onclick="tambahPaket()">
+
+        <label for="kecepatan">
+            Kecepatan
+        </label>
+
+        <input
+            type="text"
+            id="kecepatan"
+            placeholder="Contoh: 10 Mbps">
+
+
+        <label for="harga">
+            Harga (Rp)
+        </label>
+
+        <input
+            type="number"
+            id="harga"
+            placeholder="Contoh: 271950">
+
+
+        <label for="promo">
+            Keterangan / Promo
+        </label>
+
+        <input
+            type="text"
+            id="promo"
+            placeholder="Contoh: Paket Internet Bisnis">
+
+
+        <button
+            class="btn-primary"
+            onclick="tambahPaket()">
+
             + Simpan Paket Baru
+
         </button>
 
-        <p id="saveMessage" class="pesan"></p>
+
+        <p
+            id="saveMessage"
+            class="pesan">
+        </p>
+
     </div>
+
 
     <!-- DAFTAR PAKET -->
     <div class="box">
-        <h2>Daftar Paket Aktif</h2>
-        <div id="daftarPaket"></div>
+
+        <h2>
+            Daftar Paket Aktif
+        </h2>
+
+        <div id="daftarPaket">
+
+            <div class="kosong">
+                Memuat data...
+            </div>
+
+        </div>
+
     </div>
 
 </div>
 
+
 <script>
 
-/*
-==========================================
-KONFIGURASI PASSWORD
-==========================================
-*/
-const PASSWORD_ADMIN = "indibiz2026";
+/* ==========================================
+   TAMPILKAN / SEMBUNYIKAN PASSWORD
+========================================== */
 
-/*
-==========================================
-FUNGSI LOGIN & LOGOUT
-==========================================
-*/
+function togglePassword() {
+    const passwordInput = document.getElementById("password");
+    const eyeIcon = document.getElementById("eyeIcon");
+
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        // Ubah ke ikon mata terbuka
+        eyeIcon.innerHTML = `
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+        `;
+    } else {
+        passwordInput.type = "password";
+        // Ubah kembali ke ikon mata tertutup (dicoret)
+        eyeIcon.innerHTML = `
+            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+            <line x1="1" y1="1" x2="23" y2="23"></line>
+        `;
+    }
+}
+
+
+/* ==========================================
+   KONFIGURASI SUPABASE
+========================================== */
+
+const SUPABASE_URL =
+    "https://pafuuilpkvjdrdqbvzdz.supabase.co";
+
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_XODCYXQbalidDA1geqNVtQ_OuzyJP7h";
+
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+    );
+
+
+/* ==========================================
+   PASSWORD ADMIN
+========================================== */
+
+const PASSWORD_ADMIN =
+    "indibiz2026";
+
+
+/* ==========================================
+   LOGIN
+========================================== */
+
 function login() {
-    const passwordInput = document.getElementById("password").value;
-    const msg = document.getElementById("loginMessage");
+
+    const passwordInput =
+        document.getElementById("password").value;
+
+    const msg =
+        document.getElementById("loginMessage");
+
 
     if (passwordInput === PASSWORD_ADMIN) {
-        sessionStorage.setItem("adminLogin", "true");
-        document.getElementById("loginBox").style.display = "none";
-        document.getElementById("adminPanel").style.display = "block";
+
+        sessionStorage.setItem(
+            "adminLogin",
+            "true"
+        );
+
+
+        document.getElementById(
+            "loginBox"
+        ).style.display = "none";
+
+
+        document.getElementById(
+            "adminPanel"
+        ).style.display = "block";
+
+
         tampilkanPaket();
+
     } else {
-        msg.innerText = "Password salah, silakan coba lagi.";
-        msg.style.color = "#ef4444";
+
+        msg.innerText =
+            "Password salah, silakan coba lagi.";
+
+        msg.style.color =
+            "#ef4444";
+
     }
+
 }
+
+
+/* ==========================================
+   LOGOUT
+========================================== */
 
 function logout() {
-    sessionStorage.removeItem("adminLogin");
+
+    sessionStorage.removeItem(
+        "adminLogin"
+    );
+
     location.reload();
+
 }
 
-/*
-==========================================
-MANAJEMEN DATA LOCALSTORAGE
-==========================================
-*/
-function ambilPaket() {
-    let paket = JSON.parse(localStorage.getItem("paketIndibiz"));
 
-    if (!Array.isArray(paket)) {
-        paket = [
-            {
-                nama: "Indibiz 10 Mbps",
-                kecepatan: "10 Mbps",
-                harga: 271950,
-                promo: "Paket Internet Bisnis"
-            },
-            {
-                nama: "Indibiz 20 Mbps",
-                kecepatan: "20 Mbps",
-                harga: 310800,
-                promo: "Paket Internet Bisnis"
-            },
-            {
-                nama: "Indibiz 50 Mbps",
-                kecepatan: "50 Mbps",
-                harga: 356000,
-                promo: "Paket Internet Bisnis"
-            }
-        ];
-        simpanPaketData(paket);
+/* ==========================================
+   AMBIL DATA DARI SUPABASE
+========================================== */
+
+async function ambilPaket() {
+
+    const { data, error } =
+        await supabaseClient
+
+            .from("paket_indibiz")
+
+            .select("*")
+
+            .order("id", {
+                ascending: true
+            });
+
+
+    if (error) {
+
+        console.error(
+            "Gagal mengambil data:",
+            error
+        );
+
+
+        return [];
+
     }
-    return paket;
+
+
+    return data || [];
+
 }
 
-function simpanPaketData(paket) {
-    localStorage.setItem("paketIndibiz", JSON.stringify(paket));
-}
 
-/*
-==========================================
-OPERASI CRUD (CREATE, READ, UPDATE, DELETE)
-==========================================
-*/
-function tambahPaket() {
-    const nama = document.getElementById("namaPaket").value.trim();
-    const kecepatan = document.getElementById("kecepatan").value.trim();
-    const harga = document.getElementById("harga").value;
-    const promo = document.getElementById("promo").value.trim();
-    const msg = document.getElementById("saveMessage");
+/* ==========================================
+   TAMBAH PAKET
+========================================== */
+
+async function tambahPaket() {
+
+    const nama =
+        document.getElementById(
+            "namaPaket"
+        ).value.trim();
+
+
+    const kecepatan =
+        document.getElementById(
+            "kecepatan"
+        ).value.trim();
+
+
+    const harga =
+        document.getElementById(
+            "harga"
+        ).value;
+
+
+    const promo =
+        document.getElementById(
+            "promo"
+        ).value.trim();
+
+
+    const msg =
+        document.getElementById(
+            "saveMessage"
+        );
+
+
+    /* CEK INPUT */
 
     if (!nama || !kecepatan || !harga) {
-        alert("Nama paket, kecepatan, dan harga wajib diisi!");
+
+        alert(
+            "Nama paket, kecepatan, dan harga wajib diisi!"
+        );
+
         return;
+
     }
+
 
     if (Number(harga) < 0) {
-        alert("Harga tidak boleh kurang dari 0.");
+
+        alert(
+            "Harga tidak boleh kurang dari 0."
+        );
+
         return;
+
     }
 
-    const paket = ambilPaket();
-    paket.push({
-        nama: nama,
-        kecepatan: kecepatan,
-        harga: Number(harga),
-        promo: promo || "Paket Internet Bisnis"
-    });
 
-    simpanPaketData(paket);
+    /* SIMPAN KE SUPABASE */
 
-    document.getElementById("namaPaket").value = "";
-    document.getElementById("kecepatan").value = "";
-    document.getElementById("harga").value = "";
-    document.getElementById("promo").value = "";
+    const { error } =
+        await supabaseClient
 
-    msg.innerText = "Paket berhasil ditambahkan.";
-    msg.style.color = "#16a34a";
+            .from("paket_indibiz")
 
-    tampilkanPaket();
+            .insert([
 
-    setTimeout(() => { msg.innerText = ""; }, 3000);
+                {
+                    Nama: nama,
+
+                    Kecepatan: kecepatan,
+
+                    Harga: Number(harga),
+
+                    Promo:
+                        promo ||
+                        "Paket Internet Bisnis"
+                }
+
+            ]);
+
+
+    /* CEK ERROR */
+
+    if (error) {
+
+        console.error(
+            "Gagal menyimpan:",
+            error
+        );
+
+
+        alert(
+            "Data gagal disimpan ke database.\n\n" +
+            error.message
+        );
+
+        return;
+
+    }
+
+
+    /* KOSONGKAN FORM */
+
+    document.getElementById(
+        "namaPaket"
+    ).value = "";
+
+
+    document.getElementById(
+        "kecepatan"
+    ).value = "";
+
+
+    document.getElementById(
+        "harga"
+    ).value = "";
+
+
+    document.getElementById(
+        "promo"
+    ).value = "";
+
+
+    /* PESAN BERHASIL */
+
+    msg.innerText =
+        "Paket berhasil ditambahkan.";
+
+    msg.style.color =
+        "#16a34a";
+
+
+    /* REFRESH DAFTAR */
+
+    await tampilkanPaket();
+
+
+    setTimeout(() => {
+
+        msg.innerText = "";
+
+    }, 3000);
+
 }
 
-function tampilkanPaket() {
-    const paket = ambilPaket();
-    const daftar = document.getElementById("daftarPaket");
+
+/* ==========================================
+   TAMPILKAN PAKET
+========================================== */
+
+async function tampilkanPaket() {
+
+    const daftar =
+        document.getElementById(
+            "daftarPaket"
+        );
+
+
+    daftar.innerHTML = `
+        <div class="kosong">
+            Memuat data...
+        </div>
+    `;
+
+
+    const paket =
+        await ambilPaket();
+
+
     daftar.innerHTML = "";
 
+
     if (paket.length === 0) {
-        daftar.innerHTML = `<div class="kosong">Belum ada paket Indibiz yang tersimpan.</div>`;
-        return;
-    }
 
-    paket.forEach(function(item, index) {
-        daftar.innerHTML += `
-            <div class="paket-admin">
-                <h3>${item.nama}</h3>
-                <p>Kecepatan: <strong>${item.kecepatan}</strong></p>
-                <p>Harga: <strong>Rp${Number(item.harga).toLocaleString("id-ID")}</strong> / bulan</p>
-                <p>Keterangan: <strong>${item.promo || "-"}</strong></p>
-
-                <div class="btn-action-group">
-                    <button class="btn-edit" onclick="ubahPaket(${index})">Ubah</button>
-                    <button class="btn-danger" onclick="hapusPaket(${index})">Hapus</button>
-                </div>
+        daftar.innerHTML = `
+            <div class="kosong">
+                Belum ada paket Indibiz
+                yang tersimpan.
             </div>
         `;
+
+        return;
+
+    }
+
+
+    paket.forEach(function(item) {
+
+        daftar.innerHTML += `
+
+            <div class="paket-admin">
+
+                <h3>
+                    ${item.Nama}
+                </h3>
+
+                <p>
+                    Kecepatan:
+                    <strong>
+                        ${item.Kecepatan}
+                    </strong>
+                </p>
+
+                <p>
+                    Harga:
+                    <strong>
+                        Rp${Number(
+                            item.Harga
+                        ).toLocaleString("id-ID")}
+                    </strong>
+                    / bulan
+                </p>
+
+                <p>
+                    Keterangan:
+                    <strong>
+                        ${item.Promo || "-"}
+                    </strong>
+                </p>
+
+                <div class="btn-action-group">
+
+                    <button
+                        class="btn-edit"
+                        onclick="ubahPaket(${item.id})">
+
+                        Ubah
+
+                    </button>
+
+                    <button
+                        class="btn-danger"
+                        onclick="hapusPaket(${item.id})">
+
+                        Hapus
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
     });
+
 }
 
-function ubahPaket(index) {
-    const paket = ambilPaket();
-    const item = paket[index];
 
-    const nama = prompt("Nama paket:", item.nama);
-    if (nama === null) return;
+/* ==========================================
+   UBAH PAKET
+========================================== */
 
-    const kecepatan = prompt("Kecepatan:", item.kecepatan);
-    if (kecepatan === null) return;
+async function ubahPaket(id) {
 
-    const harga = prompt("Harga (angka saja):", item.harga);
-    if (harga === null) return;
+    /* AMBIL DATA */
 
-    if (harga.trim() === "" || Number(harga) < 0) {
-        alert("Harga tidak valid.");
+    const paket =
+        await ambilPaket();
+
+
+    const item =
+        paket.find(function(data) {
+
+            return data.id === id;
+
+        });
+
+
+    if (!item) {
+
+        alert(
+            "Data paket tidak ditemukan."
+        );
+
+        return;
+
+    }
+
+
+    /* NAMA */
+
+    const nama =
+        prompt(
+            "Nama paket:",
+            item.Nama
+        );
+
+
+    if (nama === null) {
         return;
     }
 
-    const promo = prompt("Keterangan Promo:", item.promo);
-    if (promo === null) return;
 
-    paket[index] = {
-        nama: nama.trim(),
-        kecepatan: kecepatan.trim(),
-        harga: Number(harga),
-        promo: promo.trim()
-    };
+    /* KECEPATAN */
 
-    simpanPaketData(paket);
-    tampilkanPaket();
-    alert("Paket berhasil diperbarui.");
-}
+    const kecepatan =
+        prompt(
+            "Kecepatan:",
+            item.Kecepatan
+        );
 
-function hapusPaket(index) {
-    const paket = ambilPaket();
-    const item = paket[index];
 
-    if (confirm(`Yakin ingin menghapus paket "${item.nama}"?`)) {
-        paket.splice(index, 1);
-        simpanPaketData(paket);
-        tampilkanPaket();
+    if (kecepatan === null) {
+        return;
     }
+
+
+    /* HARGA */
+
+    const harga =
+        prompt(
+            "Harga (angka saja):",
+            item.Harga
+        );
+
+
+    if (harga === null) {
+        return;
+    }
+
+
+    if (
+        harga.trim() === "" ||
+        Number(harga) < 0
+    ) {
+
+        alert(
+            "Harga tidak valid."
+        );
+
+        return;
+
+    }
+
+
+    /* PROMO */
+
+    const promo =
+        prompt(
+            "Keterangan Promo:",
+            item.Promo || ""
+        );
+
+
+    if (promo === null) {
+        return;
+    }
+
+
+    /* UPDATE DATABASE */
+
+    const { error } =
+        await supabaseClient
+
+            .from("paket_indibiz")
+
+            .update({
+
+                Nama:
+                    nama.trim(),
+
+                Kecepatan:
+                    kecepatan.trim(),
+
+                Harga:
+                    Number(harga),
+
+                Promo:
+                    promo.trim()
+
+            })
+
+            .eq("id", id);
+
+
+    /* ERROR */
+
+    if (error) {
+
+        console.error(
+            "Gagal memperbarui:",
+            error
+        );
+
+
+        alert(
+            "Paket gagal diperbarui.\n\n" +
+            error.message
+        );
+
+        return;
+
+    }
+
+
+    /* TAMPILKAN LAGI */
+
+    await tampilkanPaket();
+
+
+    alert(
+        "Paket berhasil diperbarui."
+    );
+
 }
 
-/*
-==========================================
-AUTOLOGIN CHECK
-==========================================
-*/
-if (sessionStorage.getItem("adminLogin") === "true") {
-    document.getElementById("loginBox").style.display = "none";
-    document.getElementById("adminPanel").style.display = "block";
+
+/* ==========================================
+   HAPUS PAKET
+========================================== */
+
+async function hapusPaket(id) {
+
+    const paket =
+        await ambilPaket();
+
+
+    const item =
+        paket.find(function(data) {
+
+            return data.id === id;
+
+        });
+
+
+    if (!item) {
+
+        alert(
+            "Data paket tidak ditemukan."
+        );
+
+        return;
+
+    }
+
+
+    if (
+        confirm(
+            `Yakin ingin menghapus paket "${item.Nama}"?`
+        )
+    ) {
+
+
+        const { error } =
+            await supabaseClient
+
+                .from("paket_indibiz")
+
+                .delete()
+
+                .eq("id", id);
+
+
+        if (error) {
+
+            console.error(
+                "Gagal menghapus:",
+                error
+            );
+
+
+            alert(
+                "Paket gagal dihapus.\n\n" +
+                error.message
+            );
+
+            return;
+
+        }
+
+
+        await tampilkanPaket();
+
+    }
+
+}
+
+
+/* ==========================================
+   AUTO LOGIN
+========================================== */
+
+if (
+    sessionStorage.getItem(
+        "adminLogin"
+    ) === "true"
+) {
+
+    document.getElementById(
+        "loginBox"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "adminPanel"
+    ).style.display = "block";
+
+
     tampilkanPaket();
+
 }
 
 </script>
