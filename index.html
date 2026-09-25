@@ -333,14 +333,14 @@
 
         .masalah {
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 40px;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
             align-items: stretch;
         }
 
         .masalah-card-left {
             background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%) !important;
-            padding: 44px;
+            padding: 36px;
             border-radius: var(--radius-lg);
             border: 1px solid rgba(56, 189, 248, 0.25);
             box-shadow: var(--shadow-subtle);
@@ -380,34 +380,34 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             width: fit-content;
         }
 
         .masalah-text h3 {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 800;
             color: #0f172a !important;
-            margin-bottom: 18px;
+            margin-bottom: 14px;
             letter-spacing: -0.8px;
             line-height: 1.25;
         }
 
         .masalah-text p {
-            line-height: 1.85;
+            line-height: 1.6;
             color: #334155 !important;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 400;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .smoke-highlights {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
+            gap: 12px;
             margin-top: 10px;
             border-top: 1px solid #e2e8f0;
-            padding-top: 22px;
+            padding-top: 18px;
         }
 
         .smoke-highlight-item {
@@ -431,7 +431,7 @@
 
         .info-box {
             background: #ffffff !important;
-            padding: 40px 36px;
+            padding: 36px;
             border-radius: var(--radius-lg);
             border: 1px solid var(--border-color);
             box-shadow: var(--shadow-subtle);
@@ -464,16 +464,16 @@
             color: #0f172a !important;
             font-size: 22px;
             font-weight: 800;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             letter-spacing: -0.5px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: space-between;
         }
 
         .info-box h3 span {
             color: #0284c7;
-            font-size: 14px;
+            font-size: 13px;
             background: #e0f2fe;
             padding: 4px 10px;
             border-radius: 6px;
@@ -484,14 +484,14 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 14px;
         }
 
         .info-box ul li {
             position: relative;
             padding-left: 32px;
             color: #334155 !important;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
             line-height: 1.5;
             transition: transform 0.2s ease;
@@ -1013,40 +1013,6 @@
                 width: 100%;
             }
         }
-
-        @media (max-width: 768px) {
-            html,
-            body {
-                width: 100%;
-                max-width: 100%;
-                min-width: 0;
-                overflow-x: hidden !important;
-                overscroll-behavior-x: none;
-            }
-
-            .hero::before,
-            .hero::after,
-            .kontak::before {
-                max-width: 100vw;
-            }
-
-            .hero,
-            .kontak,
-            .card,
-            .keunggulan-box,
-            .info-box,
-            .masalah,
-            .cards,
-            .keunggulan {
-                max-width: 100%;
-                min-width: 0;
-            }
-
-            [data-aos] {
-                transform: none;
-                will-change: auto;
-            }
-        }
     </style>
 </head>
 
@@ -1108,16 +1074,16 @@
 
     <div class="masalah-container">
         <div class="masalah">
-            <!-- Kolom Kiri: Teks Naratif dengan Kartu Estetis -->
+            <!-- Kolom Kiri: Ringkasan Situasi -->
             <div class="masalah-card-left" data-aos="fade-right" data-aos-duration="800">
                 <div class="masalah-text">
                     <span class="badge-smoke">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
-                        Analisis Situasi
+                        Analisis Cepat
                     </span>
-                    <h3>Mendukung Aktivitas Bisnis Tanpa Henti</h3>
+                    <h3>Menjaga Produktivitas Tanpa Batas Ruang</h3>
                     <p>
-                        Kondisi kabut asap yang pekat seringkali membatasi mobilitas masyarakat dan operasional tatap muka di luar ruangan. Guna menjaga kelangsungan pendapatan usaha, koneksi internet yang stabil dan andal menjadi kunci utama bagi para pelaku bisnis dalam mengalihkan layanan secara digital dari dalam ruangan.
+                        Mobilitas luar ruangan yang terbatas akibat kabut asap pekat tidak boleh menghentikan roda bisnis Anda. Migrasi operasional ke dalam ruangan secara digital adalah solusi utama pertahankan pendapatan.
                     </p>
                 </div>
 
@@ -1128,24 +1094,24 @@
                     </div>
                     <div class="smoke-highlight-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        <span>Layanan Pelanggan 24/7</span>
+                        <span>Dukungan 24/7</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Kolom Kanan: Poin-poin Manfaat Indibiz -->
+            <!-- Kolom Kanan: Poin Pemanfaatan Ringkas -->
             <div class="info-box" data-aos="fade-left" data-aos-duration="800">
                 <h3>
-                    Indibiz untuk Bisnis 
+                    Solusi Bisnis Indibiz
                     <span>Enterprise</span>
                 </h3>
 
                 <ul>
-                    <li>Mendukung komunikasi interaktif dengan pelanggan secara real-time</li>
-                    <li>Mendukung strategi pemasaran & promosi secara digital</li>
-                    <li>Membantu kelancaran transaksi e-commerce dan operasional online</li>
-                    <li>Mendukung akses informasi pasar dan update bisnis terkini</li>
-                    <li>Membantu karyawan dan manajemen bekerja optimal dari dalam ruangan</li>
+                    <li>Komunikasi interaktif & real-time dengan pelanggan</li>
+                    <li>Strategi pemasaran & promosi digital tanpa hambatan</li>
+                    <li>Kelancaran transaksi e-commerce dan operasional online</li>
+                    <li>Akses informasi pasar dan update bisnis terkini</li>
+                    <li>Karyawan & manajemen optimal bekerja dari dalam ruangan</li>
                 </ul>
             </div>
         </div>
